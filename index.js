@@ -1,31 +1,10 @@
-
-const profileDataArgs = process.argv.slice(2, process.argv.length);
-console.log(profileDataArgs);
-
-const [name, github] = profileDataArgs;
-
-
-const generateMarkdown = (userName, githubName) => {
-    return `
-        ## Title
-        Name: ${userName}
-        Github: ${githubName}
-    `;
-};
-
-fs.generateMarkdown('readMee.md', generateMarkdown(name, github), err => {
-    if (err) throw err;
-  
-    console.log('Portfolio complete! Check out index.html to see the output!');
-  });
-
-
 /* 1. TODO: Include packages needed for this application. 
 Go to root directory of folder and type <npm install inquierer@8.2.4> in the termainl to install inquirer*/
 
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('Develop/utils/generateMarkdown.js');
+const util = require('util');
+const {generateMarkdown} = require("./Develop/utils/generateMarkdown.js");
 
 // 2. TODO: Create an array of questions for user input*/
 const questions = function(questionData){
@@ -59,11 +38,24 @@ const questions = function(questionData){
 function writeToFile(fileName, data) {}*/
 
 function writeToFile(fileName, data) {
-
+    questions ()
+    .then(questionData => {
+        const pageMD = generateMarkdown(questionData)
+        fs.writeFile('./README.md', pageMD, err => {
+            if (err) throw new Error (err);
+            console.log('ReadMe File Created!');
+        })
+    })
 } 
 
-/*/ TODO: Create a function to initialize app
-function init() {}
+/* TODO: Create a function to initialize app
+function init() {}*/
 
-// Function call to initialize app
-init();*/
+function init () {
+    writeToFile()
+}
+
+/* Function call to initialize app
+init()*/
+
+init ();
