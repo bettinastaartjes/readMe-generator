@@ -1,0 +1,25 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Easily generate a READMe file for your next project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bettinastaartjes/readMe-generator.git"
+  },
+  "keywords": [
+    "readme"
+  ],
+  "author": "Bettina Staartjes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bettinastaartjes/readMe-generator/issues"
+  },
+  "homepage": "https://github.com/bettinastaartjes/readMe-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
