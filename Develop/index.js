@@ -4,7 +4,7 @@ Go to root directory of folder and type <npm install inquierer@8.2.4> in the ter
 const fs = require('fs');
 const inquirer = require('inquirer');
 const util = require('util');
-const {generateMarkdown} = require("./Develop/utils/generateMarkdown.js");
+const { generateMarkdown } = require("./utils/generateMarkdown.js");
 
 // 2. TODO: Create an array of questions for user input*/
 const questions = function(questionData){
