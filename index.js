@@ -23,37 +23,51 @@ const questions = function(questionData){
         },
         {
             type: 'input',
-            message: "Please provide a Table of Contents for this project.",
-            name: "tableOfContents",
+            message: 'Provide a short description explaining the what, why, and how of your project.',
+            name: 'projectDescription',
+            validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
+        },
+        {
+            type: 'input',
+            message: 'What are the steps required to install your application?',
+            name: 'installation',
+            validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
+        },
+        {
+            type: 'input',
+            message: 'Provide instructions and examples for use. Include screenshots as needed.',
+            name: 'usage',
+            validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
+        },
+        {
+            type: 'input',
+            message: 'Any collaborators?',
+            name: 'collaborators',
+            validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
+        },
+        {
+            type: 'input',
+            message: "What's your email?",
+            name: "email",
             //validate property to check that the user provided a value//
             validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
         },
         {
             type: 'input',
-            message: "What's your username?",
+            message: "What's your GitHub username?",
             name: "username",
             //validate property to check that the user provided a value//
             validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
         },
         {
-            type: "list",
-            name: "license",
-            message: "Chose the appropriate license for this project: ",
+            type: 'list',
+            name: 'license',
+            message: "Chose the appropriate license for this project:",
             choices: [
-                "Apache",
-                "Academic",
                 "GNU",
-                "ISC",
                 "MIT",
-                "Mozilla",
-                "Open"
-            ]
-        },
-        {
-            type: 'input',
-            message: "Please provide a description of the project.",
-            name: "projectDescripton",
-            //validate property to check that the user provided a value//
+            ],
+            //validate property to check that the user provided a value
             validate: (value)=>{ if(value){return true} else {return 'Please provide an answer to continue'}},
         },
     ]);
@@ -66,7 +80,7 @@ function writeToFile(fileName, data) {
     questions ()
     .then(questionData => {
         const pageMD = generateMarkdown(questionData)
-        fs.writeFile('./READMEE.md', pageMD, err => {
+        fs.writeFile('./README.md', pageMD, err => {
             if (err) throw new Error (err);
             console.log('ReadMe File Created!');
         })
