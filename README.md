@@ -1,5 +1,6 @@
 # Description
 A Node.js application that dynamically generates a professional README.md file from a user's input using the Inquirer package.
+Here is the link to the video of the application: https://drive.google.com/file/d/1zpfM3s1pN8nwFPtjbDJzkE60O7zsjOkA/view
 
 # User Story
 AS A developer
